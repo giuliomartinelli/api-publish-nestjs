@@ -16,7 +16,7 @@ export class TaskUsePolicyController {
 
   @Post('install')
   @HttpCode(HttpStatus.ACCEPTED)
-  usePolicyInstall(@Body() task: TaskUsePolicyInstallDto): string {
+  usePolicyInstall(@Body() task: TaskUsePolicyInstallDto): void {
     this.taskService.usePolicyInstall(task);
     return;
   }
