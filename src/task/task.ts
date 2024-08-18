@@ -78,6 +78,7 @@ export class Task {
   }
 
   public publishAndSave(): void {
+    console.log('Task.publishAndSave',this);
     const powerOn = true;
     if (!powerOn) this.setStatus(5);
     if (powerOn) this.publishTask();

@@ -15,6 +15,7 @@ export class TaskService {
   constructor(private readonly task: Task) {}
 
   public usePolicyInstall(data: TaskUsePolicyInstallDto): Promise<void> {
+    console.log('TaskService.usePolicyInstall',data);
     const topic = `${data.equipment.serial}`;
     return this.publishAndSave(topic, data);
   }
@@ -68,6 +69,7 @@ export class TaskService {
   }
 
   private publishAndSave(topic: string, data: any): Promise<void> {
+    console.log('TaskService.publishAndSave',topic, data);
     this.task.setTopic(topic);
     this.task.setTask(data.task);
     this.task.setTaskId(data.taskId);
