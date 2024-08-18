@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Queue } from '../queue/queue';
 import { DeviceTask } from '../device-task/device-task';
 import { EquipementDto } from './dto/equipement.dto';
@@ -9,23 +9,24 @@ import { UsePolicyDefinitionDto } from './dto/use-policy-definition.dto';
 import { UsePolicyApplicationDto } from './dto/use-policy-application.dto';
 
 @Injectable()
-export class Publish {
-  constructor(
-    protected readonly queue: Queue,
-    protected readonly deviceTask: DeviceTask,
-    private topic: string,
-    private taskId: number,
+export class Task {
+    private topic: string;
+    private taskId: number;
     private task:
       | UsePolicyScreenDto
       | UsePolicyRestrictionDto
       | UsePolicyKioskDto
       | UsePolicyDefinitionDto
-      | UsePolicyApplicationDto,
-    private taskType: number,
-    private taskSubType: number,
-    private updateType: string,
-    private status: number,
-    private equipment: EquipementDto,
+      | UsePolicyApplicationDto;
+    private taskType: number;
+    private taskSubType: number;
+    private updateType: string;
+    private status: number;
+    private equipment: EquipementDto;
+
+  constructor(
+    private readonly queue: Queue,
+    private readonly deviceTask: DeviceTask,
   ) {}
 
   public setTopic(topic: string): void {

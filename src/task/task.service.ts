@@ -8,11 +8,11 @@ import { TaskUsePolicyScreenDto } from './dto/task-use-policy-screen.dto';
 import { TaskUsePolicyRestrictionDto } from './dto/task-use-policy-restriction.dto';
 import { TaskUsePolicyKioskDto } from './dto/task-use-policy-kiosk.dto';
 import { TaskUsePolicyDefinitionDto } from './dto/task-use-policy-definition.dto';
-import { Publish } from './publish';
+import { Task } from './task';
 
 @Injectable()
-export class PublishService {
-  constructor(private readonly publish: Publish) {}
+export class TaskService {
+  constructor(private readonly task: Task) {}
 
   public usePolicyInstall(data: TaskUsePolicyInstallDto): Promise<void> {
     const topic = `${data.equipment.serial}`;
@@ -68,15 +68,15 @@ export class PublishService {
   }
 
   private publishAndSave(topic: string, data: any): Promise<void> {
-    this.publish.setTopic(topic);
-    this.publish.setTask(data.task);
-    this.publish.setTaskId(data.taskId);
-    this.publish.setTaskType(data.taskType);
-    this.publish.setTaskSubType(data.taskSubType);
-    this.publish.setUpdateType(data.updateType);
-    this.publish.setStatus(1);
-    this.publish.setEquipment(data.equipment);
-    this.publish.publishAndSave();
+    this.task.setTopic(topic);
+    this.task.setTask(data.task);
+    this.task.setTaskId(data.taskId);
+    this.task.setTaskType(data.taskType);
+    this.task.setTaskSubType(data.taskSubType);
+    this.task.setUpdateType(data.updateType);
+    this.task.setStatus(1);
+    this.task.setEquipment(data.equipment);
+    this.task.publishAndSave();
     return;
   }
 }

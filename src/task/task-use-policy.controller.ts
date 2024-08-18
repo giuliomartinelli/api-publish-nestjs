@@ -8,51 +8,51 @@ import { TaskUsePolicyScreenDto } from './dto/task-use-policy-screen.dto';
 import { TaskUsePolicyRestrictionDto } from './dto/task-use-policy-restriction.dto';
 import { TaskUsePolicyKioskDto } from './dto/task-use-policy-kiosk.dto';
 import { TaskUsePolicyDefinitionDto } from './dto/task-use-policy-definition.dto';
-import { PublishService } from './publish.service';
+import { TaskService } from './task.service';
 
-@Controller('publish/use-policy')
-export class PublishUsePolicyController {
-  constructor(private readonly publishService: PublishService) {}
+@Controller('task/use-policy')
+export class TaskUsePolicyController {
+  constructor(private readonly taskService: TaskService) {}
 
   @Post('install')
   @HttpCode(HttpStatus.ACCEPTED)
-  usePolicyInstall(@Body() task: TaskUsePolicyInstallDto): void {
-    this.publishService.usePolicyInstall(task);
+  usePolicyInstall(@Body() task: TaskUsePolicyInstallDto): string {
+    this.taskService.usePolicyInstall(task);
     return;
   }
 
   @Post('uninstall')
   @HttpCode(HttpStatus.ACCEPTED)
   usePolicyUninstall(@Body() task: TaskUsePolicyUninstallDto): void {
-    this.publishService.usePolicyUninstall(task);
+    this.taskService.usePolicyUninstall(task);
     return;
   }
 
   @Post('screen')
   @HttpCode(HttpStatus.ACCEPTED)
   usePolicyScreen(@Body() task: TaskUsePolicyScreenDto): void {
-    this.publishService.usePolicyScreen(task);
+    this.taskService.usePolicyScreen(task);
     return;
   }
 
   @Post('restriction')
   @HttpCode(HttpStatus.ACCEPTED)
   usePolicyRestriction(@Body() task: TaskUsePolicyRestrictionDto): void {
-    this.publishService.usePolicyRestriction(task);
+    this.taskService.usePolicyRestriction(task);
     return;
   }
 
   @Post('kiosk')
   @HttpCode(HttpStatus.ACCEPTED)
   usePolicyKiosk(@Body() task: TaskUsePolicyKioskDto): void {
-    this.publishService.usePolicyKiosk(task);
+    this.taskService.usePolicyKiosk(task);
     return;
   }
 
   @Post('definition')
   @HttpCode(HttpStatus.ACCEPTED)
   usePolicyDefinition(@Body() task: TaskUsePolicyDefinitionDto): void {
-    this.publishService.usePolicyDefinition(task);
+    this.taskService.usePolicyDefinition(task);
     return;
   }
 
@@ -61,7 +61,7 @@ export class PublishUsePolicyController {
   usePolicyApplicationInstall(
     @Body() task: TaskUsePolicyApplicationInstallDto,
   ): void {
-    this.publishService.usePolicyApplicationInstall(task);
+    this.taskService.usePolicyApplicationInstall(task);
     return;
   }
 
@@ -70,7 +70,7 @@ export class PublishUsePolicyController {
   usePolicyApplicationUninstall(
     @Body() task: TaskUsePolicyApplicationUninstallDto,
   ): void {
-    this.publishService.usePolicyApplicationUninstall(task);
+    this.taskService.usePolicyApplicationUninstall(task);
     return;
   }
 
@@ -79,7 +79,7 @@ export class PublishUsePolicyController {
   usePolicyApplicationUpdate(
     @Body() task: TaskUsePolicyApplicationUpdateDto,
   ): void {
-    this.publishService.usePolicyApplicationUpdate(task);
+    this.taskService.usePolicyApplicationUpdate(task);
     return;
   }
 }

@@ -1,18 +1,18 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Publish } from './publish';
+import { Task } from './task';
 
-describe('Publish', () => {
-  let publish: Publish;
+describe('Task', () => {
+  let task: Task;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [Publish],
+      providers: [Task],
     }).compile();
 
-    publish = module.get<Publish>(Publish);
+    task = module.get<Task>(Task);
   });
 
   it('should be defined', () => {
-    expect(publish).toBeDefined();
+    expect(task).toBeDefined();
   });
 });

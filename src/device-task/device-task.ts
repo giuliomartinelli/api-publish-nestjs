@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { EquipementDto } from 'src/publish/dto/equipement.dto';
-import { UsePolicyApplicationDto } from 'src/publish/dto/use-policy-application.dto';
-import { UsePolicyDefinitionDto } from 'src/publish/dto/use-policy-definition.dto';
-import { UsePolicyKioskDto } from 'src/publish/dto/use-policy-kiosk.dto';
-import { UsePolicyRestrictionDto } from 'src/publish/dto/use-policy-restriction.dto';
-import { UsePolicyScreenDto } from 'src/publish/dto/use-policy-screen.dto';
+import { EquipementDto } from 'src/task/dto/equipement.dto';
+import { UsePolicyApplicationDto } from 'src/task/dto/use-policy-application.dto';
+import { UsePolicyDefinitionDto } from 'src/task/dto/use-policy-definition.dto';
+import { UsePolicyKioskDto } from 'src/task/dto/use-policy-kiosk.dto';
+import { UsePolicyRestrictionDto } from 'src/task/dto/use-policy-restriction.dto';
+import { UsePolicyScreenDto } from 'src/task/dto/use-policy-screen.dto';
 
 @Injectable()
 export class DeviceTask {

@@ -3,10 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { QueueModule } from './queue/queue.module';
 import { DeviceTaskModule } from './device-task/device-task.module';
-import { PublishModule } from './publish/publish.module';
+import { TaskModule } from './task/task.module';
 
 @Module({
-  imports: [QueueModule, DeviceTaskModule, PublishModule],
+  imports: [QueueModule, DeviceTaskModule, TaskModule],
   controllers: [AppController],
   providers: [AppService],
 })
